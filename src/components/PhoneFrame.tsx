@@ -54,7 +54,7 @@ export default function PhoneFrame({ children }: { children: ReactNode }) {
         <div className="pointer-events-none absolute top-[11px] left-1/2 z-50 h-[36px] w-[126px] -translate-x-1/2 rounded-full bg-black" />
 
         {/* Status Bar */}
-        <div className="relative z-40 flex h-[54px] items-end justify-between bg-white px-8 pb-1">
+        <div className="relative z-40 flex h-[54px] items-center justify-between bg-white px-8">
           <span className="text-[15px] font-semibold tracking-tight text-black">
             9:41
           </span>
