@@ -1,21 +1,25 @@
-import { useState, useCallback } from "react"
-import PhoneFrame from "./components/PhoneFrame"
+import { useCallback, useState } from "react"
 import BottomNav from "./components/BottomNav"
-import HomeScreen from "./screens/HomeScreen"
-import ArticleScreen from "./screens/ArticleScreen"
-import PodcastsScreen from "./screens/PodcastsScreen"
-import NewslettersScreen from "./screens/NewslettersScreen"
-import SavedScreen from "./screens/SavedScreen"
-import ProfileScreen from "./screens/ProfileScreen"
+import PhoneFrame from "./components/PhoneFrame"
 import { articles, type PodcastEpisode } from "./data"
+import ArticleScreen from "./screens/ArticleScreen"
+import HomeScreen from "./screens/HomeScreen"
+import NewslettersScreen from "./screens/NewslettersScreen"
+import PodcastsScreen from "./screens/PodcastsScreen"
+import ProfileScreen from "./screens/ProfileScreen"
+import SavedScreen from "./screens/SavedScreen"
 
 export type Tab = "home" | "podcasts" | "newsletters" | "saved" | "profile"
 
 function App() {
   const [tab, setTab] = useState<Tab>("home")
   const [articleId, setArticleId] = useState<string | null>(null)
-  const [savedIds, setSavedIds] = useState<Set<string>>(() => new Set(["5", "7"]))
-  const [playingEpisode, setPlayingEpisode] = useState<PodcastEpisode | null>(null)
+  const [savedIds, setSavedIds] = useState<Set<string>>(
+    () => new Set(["5", "7"]),
+  )
+  const [playingEpisode, setPlayingEpisode] = useState<PodcastEpisode | null>(
+    null,
+  )
   const [isPlaying, setIsPlaying] = useState(false)
 
   const openArticle = useCallback((id: string) => setArticleId(id), [])
@@ -63,7 +67,9 @@ function App() {
       case "newsletters":
         return <NewslettersScreen />
       case "saved":
-        return <SavedScreen articles={savedArticles} onOpenArticle={openArticle} />
+        return (
+          <SavedScreen articles={savedArticles} onOpenArticle={openArticle} />
+        )
       case "profile":
         return <ProfileScreen />
     }
@@ -86,12 +92,22 @@ function App() {
                 className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-dispatch-red text-white"
               >
                 {isPlaying ? (
-                  <svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor">
+                  <svg
+                    width="10"
+                    height="12"
+                    viewBox="0 0 10 12"
+                    fill="currentColor"
+                  >
                     <rect x="0" y="0" width="3" height="12" rx="1" />
                     <rect x="7" y="0" width="3" height="12" rx="1" />
                   </svg>
                 ) : (
-                  <svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor">
+                  <svg
+                    width="10"
+                    height="12"
+                    viewBox="0 0 10 12"
+                    fill="currentColor"
+                  >
                     <polygon points="0,0 10,6 0,12" />
                   </svg>
                 )}
@@ -111,7 +127,14 @@ function App() {
                 }}
                 className="shrink-0 text-white/50"
               >
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
                   <path d="M4 4l8 8M12 4l-8 8" />
                 </svg>
               </button>

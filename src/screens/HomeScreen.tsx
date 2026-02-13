@@ -11,24 +11,29 @@ export default function HomeScreen({
   return (
     <div className="pb-2">
       {/* Header */}
-      <div className="px-5 pb-3 pt-2 text-center">
-        <h1 className="font-display text-[26px] font-bold italic text-dispatch-red">
+      <div className="px-5 pt-2 pb-3 text-center">
+        <h1 className="font-display text-[26px] font-bold text-dispatch-red italic">
           The Dispatch
         </h1>
       </div>
 
       {/* Category pills */}
       <div className="hide-scrollbar flex gap-2 overflow-x-auto px-5 pb-4">
-        {["Politics", "World Events", "National Security", "Economics", "Law", "Religion"].map(
-          (cat) => (
-            <span
-              key={cat}
-              className="shrink-0 rounded-full border border-dispatch-border px-3 py-1 text-[11px] font-medium text-dispatch-text"
-            >
-              {cat}
-            </span>
-          ),
-        )}
+        {[
+          "Politics",
+          "World Events",
+          "National Security",
+          "Economics",
+          "Law",
+          "Religion",
+        ].map((cat) => (
+          <span
+            key={cat}
+            className="shrink-0 rounded-full border border-dispatch-border px-3 py-1 text-[11px] font-medium text-dispatch-text"
+          >
+            {cat}
+          </span>
+        ))}
       </div>
 
       {/* Hero article */}
@@ -43,7 +48,7 @@ export default function HomeScreen({
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
         <div className="absolute bottom-0 p-4">
-          <span className="mb-2 inline-block rounded-sm border border-white/40 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-white">
+          <span className="mb-2 inline-block rounded-sm border border-white/40 px-2 py-0.5 text-[10px] font-semibold tracking-wider text-white uppercase">
             {hero.category}
           </span>
           <h2 className="font-display text-[22px] leading-tight font-bold text-white">
@@ -60,7 +65,7 @@ export default function HomeScreen({
 
       {/* Section header */}
       <div className="mt-5 mb-1 px-5">
-        <h3 className="text-[13px] font-bold uppercase tracking-widest text-dispatch-navy">
+        <h3 className="text-[13px] font-bold tracking-widest text-dispatch-navy uppercase">
           Latest
         </h3>
       </div>
@@ -77,7 +82,7 @@ export default function HomeScreen({
               className={`flex gap-4 py-3.5 ${i < rest.length - 1 ? "border-b border-dashed border-dispatch-border" : ""}`}
             >
               <div className="min-w-0 flex-1">
-                <span className="mb-1 inline-block rounded-sm border border-dispatch-red/30 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-dispatch-red">
+                <span className="mb-1 inline-block rounded-sm border border-dispatch-red/30 px-1.5 py-0.5 text-[9px] font-bold tracking-wider text-dispatch-red uppercase">
                   {article.category}
                 </span>
                 <h4 className="font-serif text-[16px] leading-snug font-semibold text-dispatch-navy">

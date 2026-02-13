@@ -34,10 +34,10 @@ export default function PhoneFrame({ children }: { children: ReactNode }) {
       className="relative bg-[#1a1a1a] shadow-[0_0_80px_rgba(0,0,0,0.5)]"
     >
       {/* Side buttons */}
-      <div className="absolute -left-[3px] top-[140px] h-[30px] w-[3px] rounded-l-sm bg-[#333]" />
-      <div className="absolute -left-[3px] top-[185px] h-[54px] w-[3px] rounded-l-sm bg-[#333]" />
-      <div className="absolute -left-[3px] top-[248px] h-[54px] w-[3px] rounded-l-sm bg-[#333]" />
-      <div className="absolute -right-[3px] top-[200px] h-[70px] w-[3px] rounded-r-sm bg-[#333]" />
+      <div className="absolute top-[140px] -left-[3px] h-[30px] w-[3px] rounded-l-sm bg-[#333]" />
+      <div className="absolute top-[185px] -left-[3px] h-[54px] w-[3px] rounded-l-sm bg-[#333]" />
+      <div className="absolute top-[248px] -left-[3px] h-[54px] w-[3px] rounded-l-sm bg-[#333]" />
+      <div className="absolute top-[200px] -right-[3px] h-[70px] w-[3px] rounded-r-sm bg-[#333]" />
 
       {/* Screen */}
       <div
@@ -51,7 +51,7 @@ export default function PhoneFrame({ children }: { children: ReactNode }) {
         }}
       >
         {/* Dynamic Island */}
-        <div className="pointer-events-none absolute left-1/2 top-[11px] z-50 h-[36px] w-[126px] -translate-x-1/2 rounded-full bg-black" />
+        <div className="pointer-events-none absolute top-[11px] left-1/2 z-50 h-[36px] w-[126px] -translate-x-1/2 rounded-full bg-black" />
 
         {/* Status Bar */}
         <div className="relative z-40 flex h-[54px] items-end justify-between bg-white px-8 pb-1">
@@ -59,23 +59,13 @@ export default function PhoneFrame({ children }: { children: ReactNode }) {
             9:41
           </span>
           <div className="flex items-center gap-1">
-            <svg
-              width="18"
-              height="12"
-              viewBox="0 0 18 12"
-              fill="black"
-            >
+            <svg width="18" height="12" viewBox="0 0 18 12" fill="black">
               <rect x="0" y="8" width="3" height="4" rx="0.5" />
               <rect x="4.5" y="5.5" width="3" height="6.5" rx="0.5" />
               <rect x="9" y="3" width="3" height="9" rx="0.5" />
               <rect x="13.5" y="0" width="3" height="12" rx="0.5" />
             </svg>
-            <svg
-              width="16"
-              height="12"
-              viewBox="0 0 16 12"
-              fill="black"
-            >
+            <svg width="16" height="12" viewBox="0 0 16 12" fill="black">
               <path d="M8 9.5a1.5 1.5 0 110 3 1.5 1.5 0 010-3zM4 7.5c1.2-1.2 2.5-1.8 4-1.8s2.8.6 4 1.8l-.9.9C10 7.3 9 6.9 8 6.9s-2 .4-3.1 1.5L4 7.5zM1.5 5C3.5 3 5.7 2 8 2s4.5 1 6.5 3l-.9.9C11.9 4.2 10 3.2 8 3.2S4.1 4.2 2.4 5.9L1.5 5z" />
             </svg>
             <svg width="27" height="13" viewBox="0 0 27 13" fill="black">

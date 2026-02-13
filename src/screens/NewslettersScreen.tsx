@@ -3,7 +3,7 @@ import { newsletters } from "../data"
 export default function NewslettersScreen() {
   return (
     <div className="pb-4">
-      <div className="px-5 pb-1 pt-3">
+      <div className="px-5 pt-3 pb-1">
         <h1 className="text-[22px] font-bold text-dispatch-navy">
           Newsletters
         </h1>

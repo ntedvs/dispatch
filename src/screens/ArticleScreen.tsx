@@ -72,7 +72,7 @@ export default function ArticleScreen({
 
       <div className="px-5 pt-4">
         {/* Category */}
-        <span className="mb-3 inline-block rounded-sm border border-dispatch-red/30 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-dispatch-red">
+        <span className="mb-3 inline-block rounded-sm border border-dispatch-red/30 px-2 py-0.5 text-[10px] font-bold tracking-wider text-dispatch-red uppercase">
           {article.category}
         </span>
 

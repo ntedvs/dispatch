@@ -9,7 +9,7 @@ export default function SavedScreen({
 }) {
   return (
     <div className="pb-4">
-      <div className="px-5 pb-1 pt-3">
+      <div className="px-5 pt-3 pb-1">
         <h1 className="text-[22px] font-bold text-dispatch-navy">Saved</h1>
       </div>
 
@@ -45,7 +45,7 @@ export default function SavedScreen({
                 className={`flex gap-4 py-3.5 ${i < articles.length - 1 ? "border-b border-dashed border-dispatch-border" : ""}`}
               >
                 <div className="min-w-0 flex-1">
-                  <span className="mb-1 inline-block rounded-sm border border-dispatch-red/30 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-dispatch-red">
+                  <span className="mb-1 inline-block rounded-sm border border-dispatch-red/30 px-1.5 py-0.5 text-[9px] font-bold tracking-wider text-dispatch-red uppercase">
                     {article.category}
                   </span>
                   <h4 className="font-serif text-[16px] leading-snug font-semibold text-dispatch-navy">

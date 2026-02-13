@@ -69,8 +69,7 @@ export const articles: Article[] = [
   },
   {
     id: "3",
-    title:
-      "Will Trump\u2019s Immigration Raids Cost Republicans the Senate?",
+    title: "Will Trump\u2019s Immigration Raids Cost Republicans the Senate?",
     author: "John McCormack",
     date: "February 13, 2026",
     category: "Politics",
@@ -98,8 +97,7 @@ export const articles: Article[] = [
   {
     id: "5",
     title: "Lefty Kooks 1, Trump Gun Thugs 0",
-    subtitle:
-      "The perennial protest left wins the Battle of Minneapolis.",
+    subtitle: "The perennial protest left wins the Battle of Minneapolis.",
     author: "Kevin D. Williamson",
     date: "February 13, 2026",
     category: "Politics",
@@ -113,8 +111,7 @@ export const articles: Article[] = [
   },
   {
     id: "6",
-    title:
-      "Trump\u2019s Second Acquittal: A Day That Should Live in Infamy",
+    title: "Trump\u2019s Second Acquittal: A Day That Should Live in Infamy",
     author: "Gary Schmitt",
     date: "February 13, 2026",
     category: "Law",

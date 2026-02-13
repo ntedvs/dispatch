@@ -60,7 +60,7 @@ export default function ProfileScreen() {
 
       {/* Footer */}
       <div className="mt-8 text-center">
-        <p className="font-display text-[14px] font-bold italic text-dispatch-red/30">
+        <p className="font-display text-[14px] font-bold text-dispatch-red/30 italic">
           The Dispatch
         </p>
         <p className="mt-1 text-[10px] text-dispatch-gray/50">
