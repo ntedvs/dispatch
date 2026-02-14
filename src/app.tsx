@@ -43,8 +43,6 @@ function App() {
     setIsPlaying(true)
   }, [])
 
-  const savedArticles = articles.filter((a) => savedIds.has(a.id))
-
   const renderScreen = () => {
     if (articleId) {
       const article = articles.find((a) => a.id === articleId)
