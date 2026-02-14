@@ -44,7 +44,7 @@ const tabs: {
   },
   {
     id: "newsletters",
-    label: "Letters",
+    label: "Newsletters",
     icon: (a) => (
       <svg
         width="22"
@@ -65,17 +65,17 @@ const tabs: {
   },
   {
     id: "saved",
-    label: "Saved",
+    label: "Authors",
     icon: (a) => (
       <svg
-        width="20"
+        width="22"
         height="22"
-        viewBox="0 0 20 24"
+        viewBox="0 0 24 24"
         fill={a ? "currentColor" : "none"}
         stroke="currentColor"
         strokeWidth="1.8"
       >
-        <path d="M2 2h16a1 1 0 011 1v19l-8-5-8 5V3a1 1 0 011-1z" />
+        <path d="M17 3a2.8 2.8 0 114 4L7.5 20.5 2 22l1.5-5.5L17 3z" />
       </svg>
     ),
   },
@@ -92,7 +92,7 @@ const tabs: {
         strokeWidth="1.8"
       >
         <circle cx="12" cy="8" r="4" />
-        <path d="M4 21v-1a6 6 0 0112 0v1" />
+        <path d="M6 21v-2a6 6 0 0112 0v2" />
       </svg>
     ),
   },
