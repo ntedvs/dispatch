@@ -1,14 +1,19 @@
-import { useCallback, useState } from "react"
+import { useCallback, useEffect, useRef, useState } from "react"
+
 import BottomNav from "./components/BottomNav"
 import PhoneFrame from "./components/PhoneFrame"
 import { articles, authors, type PodcastEpisode } from "./data"
 import ArticleScreen from "./screens/ArticleScreen"
 import AuthorDetailScreen from "./screens/AuthorDetailScreen"
 import AuthorsScreen from "./screens/AuthorsScreen"
+import HelpScreen from "./screens/HelpScreen"
 import HomeScreen from "./screens/HomeScreen"
 import NewslettersScreen from "./screens/NewslettersScreen"
+import NotificationsScreen from "./screens/NotificationsScreen"
 import PodcastsScreen from "./screens/PodcastsScreen"
 import ProfileScreen from "./screens/ProfileScreen"
+import ReadingPreferencesScreen from "./screens/ReadingPreferencesScreen"
+import SubscriptionScreen from "./screens/SubscriptionScreen"
 
 export type Tab = "home" | "podcasts" | "newsletters" | "saved" | "profile"
 
@@ -16,13 +21,26 @@ function App() {
   const [tab, setTab] = useState<Tab>("home")
   const [articleId, setArticleId] = useState<string | null>(null)
   const [authorId, setAuthorId] = useState<string | null>(null)
+  const [profileScreen, setProfileScreen] = useState<string | null>(null)
   const [savedIds, setSavedIds] = useState<Set<string>>(
     () => new Set(["5", "7"]),
   )
+  const [subscribedNewsletters, setSubscribedNewsletters] = useState<
+    Set<string>
+  >(() => new Set(["1", "3"]))
   const [playingEpisode, setPlayingEpisode] = useState<PodcastEpisode | null>(
     null,
   )
   const [isPlaying, setIsPlaying] = useState(false)
+  const [darkMode, setDarkMode] = useState(
+    () => localStorage.getItem("dispatch-dark-mode") === "true",
+  )
+
+  useEffect(() => {
+    localStorage.setItem("dispatch-dark-mode", String(darkMode))
+  }, [darkMode])
+
+  const toggleDarkMode = useCallback(() => setDarkMode((prev) => !prev), [])
 
   const openArticle = useCallback((id: string) => setArticleId(id), [])
   const openAuthor = useCallback((id: string) => setAuthorId(id), [])
@@ -33,6 +51,7 @@ function App() {
   const switchTab = useCallback((t: Tab) => {
     setTab(t)
     setArticleId(null)
+    setProfileScreen(null)
   }, [])
 
   const toggleSaved = useCallback((id: string) => {
@@ -43,6 +62,21 @@ function App() {
       return next
     })
   }, [])
+
+  const toggleNewsletter = useCallback((id: string) => {
+    setSubscribedNewsletters((prev) => {
+      const next = new Set(prev)
+      if (next.has(id)) next.delete(id)
+      else next.add(id)
+      return next
+    })
+  }, [])
+
+  const openProfileScreen = useCallback(
+    (screen: string) => setProfileScreen(screen),
+    [],
+  )
+  const closeProfileScreen = useCallback(() => setProfileScreen(null), [])
 
   const playEpisode = useCallback((ep: PodcastEpisode) => {
     setPlayingEpisode(ep)
@@ -70,32 +104,72 @@ function App() {
         )
       }
     }
+
+    // Profile sub-screens
+    if (profileScreen) {
+      switch (profileScreen) {
+        case "notifications":
+          return <NotificationsScreen onBack={closeProfileScreen} />
+        case "reading-preferences":
+          return (
+            <ReadingPreferencesScreen
+              onBack={closeProfileScreen}
+              darkMode={darkMode}
+              onToggleDarkMode={toggleDarkMode}
+            />
+          )
+        case "subscription":
+          return <SubscriptionScreen onBack={closeProfileScreen} />
+        case "help":
+          return <HelpScreen onBack={closeProfileScreen} />
+      }
+    }
+
     switch (tab) {
       case "home":
-        return <HomeScreen onOpenArticle={openArticle} onOpenAuthor={openAuthor} />
+        return (
+          <HomeScreen onOpenArticle={openArticle} onOpenAuthor={openAuthor} />
+        )
       case "podcasts":
         return <PodcastsScreen onPlayEpisode={playEpisode} />
       case "newsletters":
-        return <NewslettersScreen />
+        return (
+          <NewslettersScreen
+            subscribedIds={subscribedNewsletters}
+            onToggle={toggleNewsletter}
+          />
+        )
       case "saved":
         return <AuthorsScreen onOpenAuthor={openAuthor} />
       case "profile":
-        return <ProfileScreen />
+        return <ProfileScreen onOpenScreen={openProfileScreen} />
     }
   }
 
+  const scrollRef = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    scrollRef.current?.scrollTo(0, 0)
+  }, [tab, articleId, authorId, profileScreen])
+
+  const showBottomNav = !articleId && !authorId && !profileScreen
+
   return (
     <div className="flex h-full items-center justify-center bg-[#111] select-none">
-      <PhoneFrame>
-        <div className="flex h-full flex-col bg-white">
+      <PhoneFrame darkMode={darkMode}>
+        <div
+          className={`flex h-full flex-col bg-dispatch-bg ${darkMode ? "dark" : ""}`}
+        >
           {/* Screen content */}
-          <div className="hide-scrollbar flex-1 overflow-y-auto">
+          <div
+            ref={scrollRef}
+            className="hide-scrollbar flex-1 overflow-y-auto"
+          >
             {renderScreen()}
           </div>
 
           {/* Mini player */}
           {playingEpisode && (
-            <div className="flex shrink-0 items-center gap-3 border-t border-dispatch-border bg-dispatch-navy px-4 py-2">
+            <div className="flex shrink-0 items-center gap-3 border-t border-dispatch-border bg-dispatch-card-dark px-4 py-2">
               <button
                 onClick={() => setIsPlaying(!isPlaying)}
                 className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-dispatch-red text-white"
@@ -151,7 +225,7 @@ function App() {
           )}
 
           {/* Bottom nav */}
-          {!articleId && !authorId && (
+          {showBottomNav && (
             <BottomNav currentTab={tab} onTabChange={switchTab} />
           )}
         </div>

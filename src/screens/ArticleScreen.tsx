@@ -1,3 +1,5 @@
+import { useState } from "react"
+
 import { authors, type Article } from "../data"
 
 export default function ArticleScreen({
@@ -13,11 +15,44 @@ export default function ArticleScreen({
   onToggleSaved: () => void
   onOpenAuthor: (id: string) => void
 }) {
+  const [shareMessage, setShareMessage] = useState<string | null>(null)
   const author = authors.find((a) => a.name === article.author)
+
+  const handleShare = async () => {
+    const shareData = {
+      title: article.title,
+      text: article.subtitle || article.title,
+      url: `https://thedispatch.com/article/${article.id}`,
+    }
+
+    try {
+      if (navigator.share) {
+        await navigator.share(shareData)
+      } else {
+        await navigator.clipboard.writeText(
+          `${shareData.title} - ${shareData.url}`,
+        )
+        setShareMessage("Link copied!")
+        setTimeout(() => setShareMessage(null), 2000)
+      }
+    } catch {
+      // User cancelled share or clipboard failed - try clipboard as last resort
+      try {
+        await navigator.clipboard.writeText(
+          `${shareData.title} - ${shareData.url}`,
+        )
+        setShareMessage("Link copied!")
+        setTimeout(() => setShareMessage(null), 2000)
+      } catch {
+        // Silently fail
+      }
+    }
+  }
+
   return (
     <div className="pb-8">
       {/* Top bar */}
-      <div className="sticky top-0 z-30 flex items-center justify-between bg-white/95 px-4 py-2.5 backdrop-blur-md">
+      <div className="sticky top-0 z-30 flex items-center justify-between bg-dispatch-bg/95 px-4 py-2.5 backdrop-blur-md">
         <button
           onClick={onBack}
           className="flex items-center gap-1 text-[14px] font-medium text-dispatch-red"
@@ -35,7 +70,7 @@ export default function ArticleScreen({
           Back
         </button>
         <div className="flex items-center gap-4">
-          <button className="text-dispatch-text">
+          <button onClick={handleShare} className="relative text-dispatch-text">
             <svg
               width="20"
               height="20"
@@ -63,6 +98,13 @@ export default function ArticleScreen({
           </button>
         </div>
       </div>
+
+      {/* Share feedback toast */}
+      {shareMessage && (
+        <div className="absolute top-12 left-1/2 z-40 -translate-x-1/2 rounded-full bg-dispatch-card-dark px-4 py-1.5 text-[12px] font-medium text-white shadow-lg">
+          {shareMessage}
+        </div>
+      )}
 
       {/* Hero image */}
       {article.imageUrl && (

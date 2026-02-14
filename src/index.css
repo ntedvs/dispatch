@@ -8,8 +8,20 @@
   --color-dispatch-gray: #9a9a9a;
   --color-dispatch-light: #f7f7f7;
   --color-dispatch-border: #e5e5e5;
+  --color-dispatch-bg: #ffffff;
+  --color-dispatch-card-dark: #050c23;
   --font-family-serif: "Source Serif 4", Georgia, serif;
   --font-family-display: "Playfair Display", Georgia, serif;
+}
+
+.dark {
+  --color-dispatch-bg: #111827;
+  --color-dispatch-navy: #e8ecf0;
+  --color-dispatch-text: #d0d0d0;
+  --color-dispatch-gray: #808080;
+  --color-dispatch-light: #1e2536;
+  --color-dispatch-border: #2a3040;
+  --color-dispatch-card-dark: #1a2030;
 }
 
 @layer base {
@@ -48,7 +60,7 @@ body {
   line-height: 0.8;
   padding-right: 8px;
   padding-top: 4px;
-  color: #1a1a1a;
+  color: var(--color-dispatch-navy);
   font-weight: 700;
 }
 

@@ -106,7 +106,7 @@ export default function BottomNav({
   onTabChange: (tab: Tab) => void
 }) {
   return (
-    <div className="flex shrink-0 items-start justify-around border-t border-dispatch-border bg-white/95 px-1 pt-2 pb-6 backdrop-blur-md">
+    <div className="flex shrink-0 items-start justify-around border-t border-dispatch-border bg-dispatch-bg/95 px-1 pt-2 pb-6 backdrop-blur-md">
       {tabs.map((tab) => {
         const active = currentTab === tab.id
         return (

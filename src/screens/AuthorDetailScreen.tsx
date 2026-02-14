@@ -13,7 +13,7 @@ export default function AuthorDetailScreen({
       <div className="flex items-center gap-3 px-5 pt-3 pb-4">
         <button
           onClick={onBack}
-          className="flex h-8 w-8 items-center justify-center rounded-full hover:bg-dispatch-border/30"
+          className="flex h-8 w-8 items-center justify-center rounded-full text-dispatch-navy hover:bg-dispatch-border/30"
         >
           <svg
             width="20"

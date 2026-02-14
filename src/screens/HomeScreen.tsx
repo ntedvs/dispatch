@@ -91,7 +91,7 @@ export default function HomeScreen({
             className="block w-full text-left"
           >
             <div
-              className={`flex gap-4 py-3.5 ${i < rest.length - 1 ? "border-b border-dashed border-dispatch-border" : ""}`}
+              className={`flex items-center gap-4 py-3.5 ${i < rest.length - 1 ? "border-b border-dashed border-dispatch-border" : ""}`}
             >
               <div className="min-w-0 flex-1">
                 <span className="mb-1 inline-block rounded-sm border border-dispatch-red/30 px-1.5 py-0.5 text-[9px] font-bold tracking-wider text-dispatch-red uppercase">

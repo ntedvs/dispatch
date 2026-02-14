@@ -1,10 +1,25 @@
-export default function ProfileScreen() {
+import { useState } from "react"
+
+export default function ProfileScreen({
+  onOpenScreen,
+}: {
+  onOpenScreen: (screen: string) => void
+}) {
+  const [signOutState, setSignOutState] = useState<
+    "idle" | "confirm" | "done"
+  >("idle")
+
   const menuItems = [
-    { label: "Notifications", icon: "bell" },
-    { label: "Reading Preferences", icon: "type" },
-    { label: "Manage Subscription", icon: "credit-card" },
-    { label: "Help & Support", icon: "help" },
+    { label: "Notifications", screen: "notifications" },
+    { label: "Reading Preferences", screen: "reading-preferences" },
+    { label: "Manage Subscription", screen: "subscription" },
+    { label: "Help & Support", screen: "help" },
   ]
+
+  const handleSignOut = () => {
+    setSignOutState("done")
+    setTimeout(() => setSignOutState("idle"), 1500)
+  }
 
   return (
     <div className="pb-4">
@@ -13,7 +28,7 @@ export default function ProfileScreen() {
       </div>
 
       {/* User card */}
-      <div className="mx-5 flex items-center gap-4 rounded-xl bg-dispatch-navy p-4">
+      <div className="mx-5 flex items-center gap-4 rounded-xl bg-dispatch-card-dark p-4">
         <div className="flex h-14 w-14 items-center justify-center rounded-full bg-dispatch-red text-[22px] font-bold text-white">
           S
         </div>
@@ -33,6 +48,7 @@ export default function ProfileScreen() {
         {menuItems.map((item, i) => (
           <button
             key={item.label}
+            onClick={() => onOpenScreen(item.screen)}
             className={`flex w-full items-center justify-between py-4 text-left ${i < menuItems.length - 1 ? "border-b border-dispatch-border" : ""}`}
           >
             <span className="text-[15px] text-dispatch-text">{item.label}</span>
@@ -53,9 +69,40 @@ export default function ProfileScreen() {
 
       {/* Sign out */}
       <div className="mt-6 px-5">
-        <button className="w-full rounded-xl border border-dispatch-border py-3 text-[14px] font-medium text-dispatch-red">
-          Sign Out
-        </button>
+        {signOutState === "idle" && (
+          <button
+            onClick={() => setSignOutState("confirm")}
+            className="w-full rounded-xl border border-dispatch-border py-3 text-[14px] font-medium text-dispatch-red"
+          >
+            Sign Out
+          </button>
+        )}
+        {signOutState === "confirm" && (
+          <div className="flex flex-col items-center gap-2 rounded-xl border border-dispatch-red/30 bg-dispatch-red/5 py-3 px-4">
+            <p className="text-[14px] font-medium text-dispatch-text">
+              Are you sure you want to sign out?
+            </p>
+            <div className="flex gap-3">
+              <button
+                onClick={() => setSignOutState("idle")}
+                className="rounded-lg border border-dispatch-border px-5 py-1.5 text-[13px] font-medium text-dispatch-text"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={handleSignOut}
+                className="rounded-lg bg-dispatch-red px-5 py-1.5 text-[13px] font-medium text-white"
+              >
+                Confirm
+              </button>
+            </div>
+          </div>
+        )}
+        {signOutState === "done" && (
+          <div className="w-full rounded-xl border border-dispatch-border bg-dispatch-light py-3 text-center text-[14px] font-medium text-dispatch-text">
+            Signed out successfully
+          </div>
+        )}
       </div>
 
       {/* Footer */}
