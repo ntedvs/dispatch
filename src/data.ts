@@ -40,6 +40,8 @@ export interface Author {
   title: string
   imageUrl: string
   category: string
+  bio?: string
+  slug: string
 }
 
 export const articles: Article[] = [
@@ -312,6 +314,8 @@ export const authors: Author[] = [
     title: "CEO",
     imageUrl: "https://thedispatch.com/wp-content/uploads/2025/03/Steve-Hayes.png?w=600",
     category: "Dispatch Editorial Staff",
+    slug: "steve-hayes",
+    bio: "Steve Hayes serves as CEO and editor of The Dispatch, which he co-founded in 2019. He spent 18 years at The Weekly Standard covering Washington politics and national security, and is an accomplished author with two New York Times bestsellers. Hayes currently contributes as a political analyst at NBC News.",
   },
   {
     id: "2",
@@ -319,6 +323,8 @@ export const authors: Author[] = [
     title: "Editor-in-Chief",
     imageUrl: "https://thedispatch.com/wp-content/uploads/2025/03/Jonah-Goldberg.png?w=600",
     category: "Dispatch Editorial Staff",
+    slug: "jonah-goldberg",
+    bio: "Jonah Goldberg serves as editor-in-chief and co-founder of The Dispatch, based in Washington, D.C. Prior to founding the publication, he spent two decades at National Review as a senior editor. He is a bestselling author, longtime columnist for the Los Angeles Times, commentator for CNN, and senior fellow at the American Enterprise Institute.",
   },
   {
     id: "3",
@@ -326,6 +332,8 @@ export const authors: Author[] = [
     title: "Executive Editor",
     imageUrl: "https://thedispatch.com/wp-content/uploads/2025/03/Declan-Garvey.png?w=600",
     category: "Dispatch Editorial Staff",
+    slug: "declan-garvey",
+    bio: "Declan Garvey serves as Executive Editor of The Dispatch, based in Washington, D.C. Prior to joining in 2019, he gained experience in public affairs at Hamilton Place Strategies and market research at Echelon Insights. Outside work, he enjoys Cubs baseball, podcasts at accelerated speeds, and cooking with his wife.",
   },
   {
     id: "4",
@@ -333,6 +341,8 @@ export const authors: Author[] = [
     title: "Managing Editor",
     imageUrl: "https://thedispatch.com/wp-content/uploads/2025/03/Michael-Reneau.png?w=600",
     category: "Dispatch Editorial Staff",
+    slug: "michael-reneau",
+    bio: "Michael Reneau serves as Managing Editor at The Dispatch, based in Greeneville, Tennessee. Prior to joining in 2022, he held the position of editor at WORLD Magazine and spent several years leading a daily newspaper in East Tennessee. He balances his editorial work with family life alongside his wife and four children.",
   },
   {
     id: "5",
@@ -340,6 +350,8 @@ export const authors: Author[] = [
     title: "Managing Editor",
     imageUrl: "https://thedispatch.com/wp-content/uploads/2025/03/Rachael-Larimore.png?w=600",
     category: "Dispatch Editorial Staff",
+    slug: "rachael-larimore",
+    bio: "Rachael Larimore serves as Managing Editor at The Dispatch based in the Cincinnati area. She served in similar roles at Slate, The Weekly Standard, and The Bulwark before joining The Dispatch in 2019. She is married with three sons.",
   },
   {
     id: "6",
@@ -347,6 +359,8 @@ export const authors: Author[] = [
     title: "Deputy Managing Editor",
     imageUrl: "https://thedispatch.com/wp-content/uploads/2025/03/Wendy-Lane-Cook.png?w=600",
     category: "Dispatch Editorial Staff",
+    slug: "wendylcook",
+    bio: "Wendy Lane Cook serves as Deputy Managing Editor at The Dispatch, based in Washington, D.C. She joined in 2024 after working as managing editor of the San Antonio Report, and has experience as an editor at The Washington Post and as a writer and editor at the Associated Press. Outside work, she enjoys caring for her cats and visiting bookstores.",
   },
   {
     id: "7",
@@ -354,6 +368,8 @@ export const authors: Author[] = [
     title: "National Correspondent",
     imageUrl: "https://thedispatch.com/wp-content/uploads/2025/11/cropped-Dispatch-Portraits-Nov-1.png?w=600",
     category: "Dispatch Editorial Staff",
+    slug: "kevin-d-williamson",
+    bio: "Kevin D. Williamson serves as National Correspondent at The Dispatch, based in Virginia. He brings extensive journalism experience from 15 years at National Review, work as theater critic at the New Criterion, and a lengthy career in local newspapers. He holds a writer-in-residence position at the Competitive Enterprise Institute and produces the Wanderland newsletter.",
   },
   {
     id: "8",
@@ -361,6 +377,8 @@ export const authors: Author[] = [
     title: "Senior Editor",
     imageUrl: "https://thedispatch.com/wp-content/uploads/2025/03/Sarah-Isgur.png?w=600",
     category: "Dispatch Editorial Staff",
+    slug: "sarah-isgur",
+    bio: "Sarah Isgur serves as Senior Editor at The Dispatch based in northern Virginia. She brings extensive government experience across federal branches and three presidential campaigns, along with her role as an ABC News contributor. She authored 'Last Branch Standing,' a comprehensive examination of Supreme Court operations.",
   },
   {
     id: "9",
@@ -368,6 +386,8 @@ export const authors: Author[] = [
     title: "Staff Writer",
     imageUrl: "https://thedispatch.com/wp-content/uploads/2025/03/Nick-Catoggio.png?w=600",
     category: "Dispatch Editorial Staff",
+    slug: "nick-catoggio",
+    bio: "Nick Catoggio is a staff writer at The Dispatch based in Texas. He joined in 2022 after spending 16 years at Hot Air. His primary focus involves writing daily political newsletters, particularly his signature publication 'Boiling Frogs,' which offers sharp commentary on populism, polarization, and contemporary American conservatism.",
   },
   {
     id: "10",
@@ -375,6 +395,8 @@ export const authors: Author[] = [
     title: "Senior Editor",
     imageUrl: "https://thedispatch.com/wp-content/uploads/2025/03/Michael-Warren.png?w=600",
     category: "Dispatch Editorial Staff",
+    slug: "michael-warren",
+    bio: "Michael Warren serves as Senior Editor at The Dispatch, based in Washington, D.C. He joined in 2023 after working as an on-air reporter at CNN and a senior writer at the Weekly Standard. Beyond his editorial duties, Warren contributes to podcasting and reporting while balancing family life with his wife and three sons.",
   },
   {
     id: "11",
@@ -382,6 +404,8 @@ export const authors: Author[] = [
     title: "Senior Editor",
     imageUrl: "https://thedispatch.com/wp-content/uploads/2025/03/John-McCormack.png?w=600",
     category: "Dispatch Editorial Staff",
+    slug: "john-mccormack",
+    bio: "John McCormack serves as Senior Editor at The Dispatch, based in Washington, D.C. He previously worked as Washington correspondent for National Review and senior writer at The Weekly Standard. He also holds a position as visiting fellow at the Ethics and Public Policy Center, focusing his reporting on politics and policy.",
   },
   {
     id: "12",
@@ -389,6 +413,8 @@ export const authors: Author[] = [
     title: "Senior Writer",
     imageUrl: "https://thedispatch.com/wp-content/uploads/2025/03/David-Drucker.png?w=600",
     category: "Dispatch Editorial Staff",
+    slug: "david-drucker",
+    bio: "David M. Drucker serves as Senior Writer at The Dispatch, based in Washington, D.C. He joined in 2023 after working as a senior correspondent for the Washington Examiner, where he covered American politics. Outside work, he balances time with his two sons and enjoys music selected by his wife.",
   },
   {
     id: "13",
@@ -396,6 +422,8 @@ export const authors: Author[] = [
     title: "Associate Editor",
     imageUrl: "https://thedispatch.com/wp-content/uploads/2025/10/cropped-Charlotte-Lawson-Dispatch-revised-1.png?w=600",
     category: "Dispatch Editorial Staff",
+    slug: "charlotte-lawson",
+    bio: "Charlotte Lawson is an Associate Editor at The Dispatch currently based in Florida. She has extensive international reporting experience from Turkey and Israel. Prior to joining in 2020, she earned a degree in history and global security from the University of Virginia, and pursues oil painting as a personal creative interest.",
   },
   {
     id: "14",
@@ -403,6 +431,8 @@ export const authors: Author[] = [
     title: "Ideas Editor",
     imageUrl: "https://thedispatch.com/wp-content/uploads/2025/03/cropped-cropped-Dispatch-Val-Revised-2025-1.png?w=600",
     category: "Dispatch Editorial Staff",
+    slug: "valerie-pavilonis",
+    bio: "Valerie Pavilonis serves as Ideas Editor at The Dispatch, based in New York City. Before joining in 2025, she worked at The New York Times and NewsGuard Technologies, and currently holds a Novak Fellowship through The Fund for American Studies. She enjoys people-watching in cafes and planning themed parties.",
   },
   {
     id: "15",
@@ -410,6 +440,8 @@ export const authors: Author[] = [
     title: "Editor, The Morning Dispatch",
     imageUrl: "https://thedispatch.com/wp-content/uploads/2025/07/cropped-cropped-Dispatch-Portrait-July-1.png?w=600",
     category: "Dispatch Editorial Staff",
+    slug: "ross-anderson",
+    bio: "Ross Anderson serves as Editor of The Morning Dispatch, based in London. He joined in 2025 after working as an editor at The Spectator, serving as a columnist for The New York Sun, and completing a fellowship at Tablet. When not editing, he pursues technology exploration, weightlifting, and spending time with his cat, Teddy.",
   },
   {
     id: "16",
@@ -417,6 +449,8 @@ export const authors: Author[] = [
     title: "Staff Writer",
     imageUrl: "https://thedispatch.com/wp-content/uploads/2025/03/Grayson-Logue.png?w=600",
     category: "Dispatch Editorial Staff",
+    slug: "grayson-logue",
+    bio: "Grayson Logue serves as a staff writer for The Dispatch based in Philadelphia. Prior to joining in 2023, he worked in political risk consulting advising major corporations, and was an assistant editor at Providence Magazine. He is currently pursuing a Master's degree in history at the University of Edinburgh.",
   },
   {
     id: "17",
@@ -424,6 +458,8 @@ export const authors: Author[] = [
     title: "Reporter",
     imageUrl: "https://thedispatch.com/wp-content/uploads/2025/03/Alex-Demas.png?w=600",
     category: "Dispatch Editorial Staff",
+    slug: "alex-demas",
+    bio: "Alex Demas serves as a reporter at The Dispatch based in Washington, D.C. He joined in 2023 after working as a financial journalist in England, where he earned his MA in Political Economy from King's College London. He focuses on combating misinformation online while covering economics and politics.",
   },
   {
     id: "18",
@@ -431,6 +467,8 @@ export const authors: Author[] = [
     title: "The Morning Dispatch Reporter",
     imageUrl: "https://thedispatch.com/wp-content/uploads/2025/03/cropped-New-Dispatch-Hire-1.png?w=600",
     category: "Dispatch Editorial Staff",
+    slug: "james-p-sutton",
+    bio: "James P. Sutton serves as a Morning Dispatch Reporter based in Washington D.C. He holds a Master's degree in history from the University of Oxford and has experience teaching high school history in suburban Philadelphia. He has completed internships at National Review and the Foreign Policy Research Institute.",
   },
   {
     id: "19",
@@ -438,6 +476,8 @@ export const authors: Author[] = [
     title: "Reporter",
     imageUrl: "https://thedispatch.com/wp-content/uploads/2025/03/Charles-Hilu.png?w=600",
     category: "Dispatch Editorial Staff",
+    slug: "charles-hilu",
+    bio: "Charles Hilu serves as a reporter for The Dispatch based in Washington, D.C., having joined in 2024. Prior to this role, he gained experience as a Collegiate Network Fellow at the Washington Free Beacon and completed internships at National Review and the Washington Examiner. When not chasing down lawmakers on Capitol Hill, he listens to show tunes and follows University of Michigan and Detroit sports.",
   },
   {
     id: "20",
@@ -445,6 +485,8 @@ export const authors: Author[] = [
     title: "The Morning Dispatch Reporter",
     imageUrl: "https://thedispatch.com/wp-content/uploads/2025/03/cropped-Peter-Gattuso.png?w=600",
     category: "Dispatch Editorial Staff",
+    slug: "peter295841",
+    bio: "Peter Gattuso serves as a Morning Dispatch reporter based in Washington, D.C. Prior to joining in 2024, he gained experience through internships at The Dispatch, National Review, the Cato Institute, and the Competitive Enterprise Institute. When not fact-checking, he pursues interests in baseball, vinyl records, and maritime trade policy.",
   },
   {
     id: "21",
@@ -452,6 +494,8 @@ export const authors: Author[] = [
     title: "Reporter",
     imageUrl: "https://thedispatch.com/wp-content/uploads/2025/11/cropped-Dispatch-Portraits-Nov-2.png?w=600",
     category: "Dispatch Editorial Staff",
+    slug: "jonathan-gibson",
+    bio: "Jonathan Gibson is a reporter at The Dispatch based in Washington, D.C., specializing in artificial intelligence coverage. He holds a bachelor's degree in politics and international relations from the London School of Economics and Political Science. Beyond journalism, he pursues interests in table tennis, climbing, and reading, while receiving support from the Tarbell Center for AI Journalism.",
   },
   // Multimedia Team
   {
@@ -460,6 +504,8 @@ export const authors: Author[] = [
     title: "VP of Multimedia",
     imageUrl: "https://thedispatch.com/wp-content/uploads/2025/09/cropped-Dispatch-Portrait-Marguerite-August-.png?w=600",
     category: "Multimedia Team",
+    slug: "marguerite-howell",
+    bio: "Marguerite Howell serves as Vice President of Multimedia at The Dispatch, based in San Jose, California. She joined in 2025 after playing a key role developing social video and podcasting at The Economist, where she co-launched and co-founded 'The Intelligence.' Outside work, she enjoys mountain biking and frequenting her local library.",
   },
   {
     id: "23",
@@ -467,6 +513,8 @@ export const authors: Author[] = [
     title: "Associate Audio/Video Editor",
     imageUrl: "https://thedispatch.com/wp-content/uploads/2025/03/Victoria-Holmes.png?w=600",
     category: "Multimedia Team",
+    slug: "victoria-holmes",
+    bio: "Victoria Holmes serves as an Associate Audio/Video Editor at The Dispatch, based in Washington, D.C. She joined in 2022 after working as a TV news reporter and podcast host. Holmes focuses on producing and editing podcasts and multimedia content when not enjoying restaurant discovery and beach trips.",
   },
   {
     id: "24",
@@ -474,6 +522,8 @@ export const authors: Author[] = [
     title: "Visuals Editor",
     imageUrl: "https://thedispatch.com/wp-content/uploads/2025/03/Noah-Hickey.png?w=600",
     category: "Multimedia Team",
+    slug: "noah-hickey",
+    bio: "Noah Hickey serves as the Visuals Editor at The Dispatch, based in Tampa, Florida. He joined in 2024 after interning there and previously working as a musician while attending Polk State College. Beyond his editorial role, Hickey is an active musician who plays slide guitar and writes music for his band Foxhall.",
   },
   {
     id: "25",
@@ -481,6 +531,8 @@ export const authors: Author[] = [
     title: "Social Media Manager",
     imageUrl: "https://thedispatch.com/wp-content/uploads/2025/05/cropped-Dispatch-Portraits-May-3.png?w=600",
     category: "Multimedia Team",
+    slug: "justin-colman",
+    bio: "Justin Colman serves as Social Media Manager at The Dispatch, based in Warren, New Jersey. He joined in 2025, having previously held a similar position at Barstool Sports. Outside work, he enjoys spending time with family and friends, supporting Washington D.C. sports teams, and maintaining a fitness routine.",
   },
   {
     id: "26",
@@ -488,6 +540,8 @@ export const authors: Author[] = [
     title: "Audio Engineer",
     imageUrl: "https://thedispatch.com/wp-content/uploads/2026/01/cropped-Dispatch-Portrait-4-Jan-2026-.png?w=600",
     category: "Multimedia Team",
+    slug: "peter-bonaventure",
+    bio: "Peter Bonaventure serves as Audio Engineer at The Dispatch. He is a new staff member focused on audio production and engineering for the publication's podcast and multimedia content.",
   },
   // SCOTUSblog Editorial Staff
   {
@@ -496,6 +550,8 @@ export const authors: Author[] = [
     title: "Reporter",
     imageUrl: "https://thedispatch.com/wp-content/uploads/2025/05/cropped-Dispatch-Portraits-May-1.png?w=600",
     category: "SCOTUSblog Editorial Staff",
+    slug: "amy-howe",
+    bio: "Amy Howe serves as a reporter at SCOTUSblog, which became part of The Dispatch in 2025. She previously held positions as both reporter and editor at SCOTUSblog. With a background in law, she has argued two cases before the Supreme Court and specializes in covering Supreme Court opinions and emergency appeals.",
   },
   {
     id: "28",
@@ -503,6 +559,8 @@ export const authors: Author[] = [
     title: "Executive Editor",
     imageUrl: "https://thedispatch.com/wp-content/uploads/2025/09/cropped-Dispatch-Portraits-May-2.png?w=600",
     category: "SCOTUSblog Editorial Staff",
+    slug: "zachary-shemtob",
+    bio: "Zachary Shemtob serves as executive editor at SCOTUSblog, a position he assumed in 2025. Prior to this role, he practiced law at a boutique New York firm. Based in Summit, New Jersey, he balances his professional responsibilities with personal interests including heavy metal music, horror films, and time with his children.",
   },
   {
     id: "29",
@@ -510,6 +568,8 @@ export const authors: Author[] = [
     title: "Managing Editor",
     imageUrl: "https://thedispatch.com/wp-content/uploads/2025/09/cropped-Dispatch-Portraits-June03.png?w=600",
     category: "SCOTUSblog Editorial Staff",
+    slug: "kelsey-dallas",
+    bio: "Kelsey Dallas serves as Managing Editor at SCOTUSblog as of 2025 and is located in Madison, Wisconsin. Previously, she worked as assistant managing editor and religion reporter for the Deseret News. Outside work, she enjoys reading, spending time with her two sons, and watching reality television.",
   },
   {
     id: "30",
@@ -517,6 +577,8 @@ export const authors: Author[] = [
     title: "Editorial Assistant",
     imageUrl: "https://thedispatch.com/wp-content/uploads/2025/09/cropped-Dispatch-Portrait-Nocollin-August-.png?w=600",
     category: "SCOTUSblog Editorial Staff",
+    slug: "nora-collins",
+    bio: "Nora Collins is an editorial assistant at SCOTUSblog, based in Washington, D.C. Prior to her current role in 2025, she gained experience as a Medical News Journalism Fellow at the Journal of the American Medical Association and interned at the Foundation for Individual Rights and Expression. When not updating legal case materials, she enjoys swimming and listening to the Advisory Opinions podcast.",
   },
   // Business Team
   {
@@ -525,6 +587,8 @@ export const authors: Author[] = [
     title: "President",
     imageUrl: "https://thedispatch.com/wp-content/uploads/2025/04/cropped-Dispatch-Portraits-Rothman.png?w=600",
     category: "Business Team",
+    slug: "michael-rothman",
+    bio: "Michael Rothman serves as President of The Dispatch, based in New York. Prior to taking this full-time role in 2024, he had advised the company since its 2019 inception. His background includes founding and running Fatherly and scaling Thrillist from startup to 200 employees, along with serving as an investor and advisor to numerous digital-first consumer brands.",
   },
   {
     id: "32",
@@ -532,6 +596,8 @@ export const authors: Author[] = [
     title: "Chief of Staff",
     imageUrl: "https://thedispatch.com/wp-content/uploads/2025/04/cropped-Dispatch-Portraits-April-5.png?w=600",
     category: "Business Team",
+    slug: "campbell-rawlins",
+    bio: "Campbell Rawlins serves as Chief of Staff at The Dispatch, based in Chapel Hill, North Carolina. He joined in 2025 after holding strategy and operations roles at POLITICO, where he was most recently Senior Director of Business Strategy & Growth. Outside work, he enjoys trail running, cooking, and outdoor activities with his family.",
   },
   {
     id: "33",
@@ -539,6 +605,8 @@ export const authors: Author[] = [
     title: "Director, Commercial Partnerships",
     imageUrl: "https://thedispatch.com/wp-content/uploads/2025/04/cropped-Dispatch-Portraits-April-New.png?w=600",
     category: "Business Team",
+    slug: "brittany-prime",
+    bio: "Brittany Prime holds the position of Director, Commercial Partnerships at The Dispatch. She manages commercial partnership relationships and business development initiatives for the publication.",
   },
   {
     id: "34",
@@ -546,6 +614,8 @@ export const authors: Author[] = [
     title: "Audience Engagement Editor",
     imageUrl: "https://thedispatch.com/wp-content/uploads/2025/04/cropped-Dispatch-Portraits-April-2-1.png?w=600",
     category: "Business Team",
+    slug: "jscimecca",
+    bio: "James Scimecca serves as the audience engagement editor at The Dispatch and is based in Washington, D.C. He joined in 2023, having previously worked as director of communications at the Empire Center for Public Policy. Outside work, he enjoys running along the Potomac River, experimenting with recipes, and frequenting karaoke venues.",
   },
   {
     id: "35",
@@ -553,6 +623,8 @@ export const authors: Author[] = [
     title: "Manager, People & Operations",
     imageUrl: "https://thedispatch.com/wp-content/uploads/2026/01/cropped-Dispatch-Portrait-1-Jan-2026.png?w=600",
     category: "Business Team",
+    slug: "olivia-geno",
+    bio: "Olivia Geno serves as Manager, People & Operations at The Dispatch, based in Washington, D.C. She joined in 2025 after working in growth strategy at AllSides. Outside her operational responsibilities, she enjoys fishing, mountain climbing, and improving her pool skills.",
   },
   {
     id: "36",
@@ -560,6 +632,8 @@ export const authors: Author[] = [
     title: "Partnerships Manager",
     imageUrl: "https://thedispatch.com/wp-content/uploads/2026/01/cropped-Dispatch-Portrait-3-Jan-2026.png?w=600",
     category: "Business Team",
+    slug: "lily-thompson",
+    bio: "Lily Thompson serves as a Partnerships Manager at The Dispatch, based in San Francisco. She joined in 2026 after working in account management for POLITICO's professional subscriptions team. Outside work, she enjoys pottery, running, and exploring local cafés.",
   },
   {
     id: "37",
@@ -567,5 +641,7 @@ export const authors: Author[] = [
     title: "Community Manager",
     imageUrl: "https://thedispatch.com/wp-content/uploads/2025/04/cropped-Dispatch-Portraits-April-3.png?w=600",
     category: "Business Team",
+    slug: "hannah-cudal",
+    bio: "Hannah Cudal serves as Community Manager at The Dispatch, based in Southeast Asia. She joined in 2024 after working with small business startups where she tackled complex operational challenges. Beyond managing member accounts and subscriber benefits, she pursues personal interests in aquascaping and fundraising for overseas humanitarian initiatives.",
   },
 ]

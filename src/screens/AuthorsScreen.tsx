@@ -1,6 +1,10 @@
 import { authors, type Author } from "../data"
 
-export default function AuthorsScreen() {
+export default function AuthorsScreen({
+  onOpenAuthor,
+}: {
+  onOpenAuthor: (id: string) => void
+}) {
   // Group authors by category
   const groupedAuthors = authors.reduce(
     (acc, author) => {
@@ -31,6 +35,7 @@ export default function AuthorsScreen() {
               {categoryAuthors.map((author) => (
                 <button
                   key={author.id}
+                  onClick={() => onOpenAuthor(author.id)}
                   className="flex flex-col items-center text-center"
                 >
                   <img

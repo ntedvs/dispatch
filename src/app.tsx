@@ -1,8 +1,9 @@
 import { useCallback, useState } from "react"
 import BottomNav from "./components/BottomNav"
 import PhoneFrame from "./components/PhoneFrame"
-import { articles, type PodcastEpisode } from "./data"
+import { articles, authors, type PodcastEpisode } from "./data"
 import ArticleScreen from "./screens/ArticleScreen"
+import AuthorDetailScreen from "./screens/AuthorDetailScreen"
 import AuthorsScreen from "./screens/AuthorsScreen"
 import HomeScreen from "./screens/HomeScreen"
 import NewslettersScreen from "./screens/NewslettersScreen"
@@ -14,6 +15,7 @@ export type Tab = "home" | "podcasts" | "newsletters" | "saved" | "profile"
 function App() {
   const [tab, setTab] = useState<Tab>("home")
   const [articleId, setArticleId] = useState<string | null>(null)
+  const [authorId, setAuthorId] = useState<string | null>(null)
   const [savedIds, setSavedIds] = useState<Set<string>>(
     () => new Set(["5", "7"]),
   )
@@ -23,7 +25,11 @@ function App() {
   const [isPlaying, setIsPlaying] = useState(false)
 
   const openArticle = useCallback((id: string) => setArticleId(id), [])
-  const goBack = useCallback(() => setArticleId(null), [])
+  const openAuthor = useCallback((id: string) => setAuthorId(id), [])
+  const goBack = useCallback(() => {
+    setArticleId(null)
+    setAuthorId(null)
+  }, [])
   const switchTab = useCallback((t: Tab) => {
     setTab(t)
     setArticleId(null)
@@ -44,6 +50,12 @@ function App() {
   }, [])
 
   const renderScreen = () => {
+    if (authorId) {
+      const author = authors.find((a) => a.id === authorId)
+      if (author) {
+        return <AuthorDetailScreen author={author} onBack={goBack} />
+      }
+    }
     if (articleId) {
       const article = articles.find((a) => a.id === articleId)
       if (article) {
@@ -53,19 +65,20 @@ function App() {
             onBack={goBack}
             isSaved={savedIds.has(article.id)}
             onToggleSaved={() => toggleSaved(article.id)}
+            onOpenAuthor={openAuthor}
           />
         )
       }
     }
     switch (tab) {
       case "home":
-        return <HomeScreen onOpenArticle={openArticle} />
+        return <HomeScreen onOpenArticle={openArticle} onOpenAuthor={openAuthor} />
       case "podcasts":
         return <PodcastsScreen onPlayEpisode={playEpisode} />
       case "newsletters":
         return <NewslettersScreen />
       case "saved":
-        return <AuthorsScreen />
+        return <AuthorsScreen onOpenAuthor={openAuthor} />
       case "profile":
         return <ProfileScreen />
     }
@@ -138,7 +151,9 @@ function App() {
           )}
 
           {/* Bottom nav */}
-          {!articleId && <BottomNav currentTab={tab} onTabChange={switchTab} />}
+          {!articleId && !authorId && (
+            <BottomNav currentTab={tab} onTabChange={switchTab} />
+          )}
         </div>
       </PhoneFrame>
     </div>

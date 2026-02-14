@@ -1,16 +1,19 @@
-import type { Article } from "../data"
+import { authors, type Article } from "../data"
 
 export default function ArticleScreen({
   article,
   onBack,
   isSaved,
   onToggleSaved,
+  onOpenAuthor,
 }: {
   article: Article
   onBack: () => void
   isSaved: boolean
   onToggleSaved: () => void
+  onOpenAuthor: (id: string) => void
 }) {
+  const author = authors.find((a) => a.name === article.author)
   return (
     <div className="pb-8">
       {/* Top bar */}
@@ -90,9 +93,18 @@ export default function ArticleScreen({
 
         {/* Byline */}
         <div className="mt-3 flex items-center gap-2 text-[12px]">
-          <span className="author-name font-semibold text-dispatch-red">
-            {article.author}
-          </span>
+          {author ? (
+            <button
+              onClick={() => onOpenAuthor(author.id)}
+              className="author-name font-semibold text-dispatch-red hover:underline"
+            >
+              {article.author}
+            </button>
+          ) : (
+            <span className="author-name font-semibold text-dispatch-red">
+              {article.author}
+            </span>
+          )}
           <span className="text-dispatch-gray">/</span>
           <span className="text-dispatch-gray">{article.date}</span>
           <span className="text-dispatch-gray">&middot;</span>

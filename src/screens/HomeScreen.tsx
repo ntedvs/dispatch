@@ -1,10 +1,15 @@
-import { articles } from "../data"
+import { articles, authors } from "../data"
 
 export default function HomeScreen({
   onOpenArticle,
+  onOpenAuthor,
 }: {
   onOpenArticle: (id: string) => void
+  onOpenAuthor: (id: string) => void
 }) {
+  const findAuthor = (name: string) => {
+    return authors.find((a) => a.name === name)
+  }
   const hero = articles[0]
   const rest = articles.slice(1)
 
@@ -55,9 +60,16 @@ export default function HomeScreen({
             {hero.title}
           </h2>
           <p className="mt-1.5 text-[12px] text-white/70">
-            <span className="author-name font-medium text-white/90">
+            <button
+              onClick={(e) => {
+                e.stopPropagation()
+                const author = findAuthor(hero.author)
+                if (author) onOpenAuthor(author.id)
+              }}
+              className="author-name font-medium text-white/90 hover:underline"
+            >
               {hero.author}
-            </span>{" "}
+            </button>{" "}
             / {hero.date}
           </p>
         </div>
@@ -89,9 +101,16 @@ export default function HomeScreen({
                   {article.title}
                 </h4>
                 <p className="mt-1 text-[11px] text-dispatch-gray">
-                  <span className="author-name font-medium text-dispatch-red">
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      const author = findAuthor(article.author)
+                      if (author) onOpenAuthor(author.id)
+                    }}
+                    className="author-name font-medium text-dispatch-red hover:underline"
+                  >
                     {article.author}
-                  </span>{" "}
+                  </button>{" "}
                   / {article.date}
                 </p>
               </div>
