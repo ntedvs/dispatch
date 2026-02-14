@@ -65,7 +65,7 @@ const tabs: {
   },
   {
     id: "saved",
-    label: "Authors",
+    label: "Team",
     icon: (a) => (
       <svg
         width="22"

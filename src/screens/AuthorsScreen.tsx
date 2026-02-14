@@ -17,7 +17,7 @@ export default function AuthorsScreen() {
     <div className="pb-4">
       <div className="px-5 pt-3 pb-4">
         <h1 className="text-[22px] font-bold text-dispatch-navy">
-          Authors & Staff
+          Our Team
         </h1>
       </div>
 
