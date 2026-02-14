@@ -3,11 +3,11 @@ import BottomNav from "./components/BottomNav"
 import PhoneFrame from "./components/PhoneFrame"
 import { articles, type PodcastEpisode } from "./data"
 import ArticleScreen from "./screens/ArticleScreen"
+import AuthorsScreen from "./screens/AuthorsScreen"
 import HomeScreen from "./screens/HomeScreen"
 import NewslettersScreen from "./screens/NewslettersScreen"
 import PodcastsScreen from "./screens/PodcastsScreen"
 import ProfileScreen from "./screens/ProfileScreen"
-import SavedScreen from "./screens/SavedScreen"
 
 export type Tab = "home" | "podcasts" | "newsletters" | "saved" | "profile"
 
@@ -67,9 +67,7 @@ function App() {
       case "newsletters":
         return <NewslettersScreen />
       case "saved":
-        return (
-          <SavedScreen articles={savedArticles} onOpenArticle={openArticle} />
-        )
+        return <AuthorsScreen />
       case "profile":
         return <ProfileScreen />
     }

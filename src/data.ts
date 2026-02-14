@@ -34,6 +34,14 @@ export interface Newsletter {
   tags: string[]
 }
 
+export interface Author {
+  id: string
+  name: string
+  title: string
+  imageUrl: string
+  category: string
+}
+
 export const articles: Article[] = [
   {
     id: "1",
@@ -293,5 +301,92 @@ export const newsletters: Newsletter[] = [
     description:
       "Scott Lincicome\u2019s deep dives into trade, economics, and industrial policy.",
     tags: ["Policy", "Data-driven"],
+  },
+]
+
+export const authors: Author[] = [
+  {
+    id: "1",
+    name: "Steve Hayes",
+    title: "CEO",
+    imageUrl: "https://i.pravatar.cc/300?img=12",
+    category: "Editorial Staff",
+  },
+  {
+    id: "2",
+    name: "Jonah Goldberg",
+    title: "Editor-in-Chief",
+    imageUrl: "https://i.pravatar.cc/300?img=13",
+    category: "Editorial Staff",
+  },
+  {
+    id: "3",
+    name: "David French",
+    title: "Senior Editor",
+    imageUrl: "https://i.pravatar.cc/300?img=33",
+    category: "Editorial Staff",
+  },
+  {
+    id: "4",
+    name: "Sarah Isgur",
+    title: "Senior Editor",
+    imageUrl: "https://i.pravatar.cc/300?img=5",
+    category: "Editorial Staff",
+  },
+  {
+    id: "5",
+    name: "Nick Catoggio",
+    title: "Staff Writer",
+    imageUrl: "https://i.pravatar.cc/300?img=15",
+    category: "Editorial Staff",
+  },
+  {
+    id: "6",
+    name: "Kevin D. Williamson",
+    title: "Staff Writer",
+    imageUrl: "https://i.pravatar.cc/300?img=56",
+    category: "Editorial Staff",
+  },
+  {
+    id: "7",
+    name: "Charlotte Lawson",
+    title: "Associate Editor",
+    imageUrl: "https://i.pravatar.cc/300?img=9",
+    category: "Editorial Staff",
+  },
+  {
+    id: "8",
+    name: "Andrew Egger",
+    title: "Reporter",
+    imageUrl: "https://i.pravatar.cc/300?img=60",
+    category: "Editorial Staff",
+  },
+  {
+    id: "9",
+    name: "Declan Garvey",
+    title: "Reporter",
+    imageUrl: "https://i.pravatar.cc/300?img=68",
+    category: "Editorial Staff",
+  },
+  {
+    id: "10",
+    name: "Chris Stirewalt",
+    title: "Contributing Editor",
+    imageUrl: "https://i.pravatar.cc/300?img=52",
+    category: "Contributors",
+  },
+  {
+    id: "11",
+    name: "Mona Charen",
+    title: "Policy Editor",
+    imageUrl: "https://i.pravatar.cc/300?img=16",
+    category: "Contributors",
+  },
+  {
+    id: "12",
+    name: "Scott Lincicome",
+    title: "Economics Writer",
+    imageUrl: "https://i.pravatar.cc/300?img=51",
+    category: "Contributors",
   },
 ]
